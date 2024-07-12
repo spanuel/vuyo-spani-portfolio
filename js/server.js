@@ -43,7 +43,7 @@ app.post('/send_message', async (req, res) => {
 });
 
 app.get('/config', (req, res) => {
-  console.log(process.env.GIT_TOKEN);
+  console.log("Your GIT HUB TOKEN KEY",process.env.GIT_TOKEN);
   res.json({ GIT_TOKEN: process.env.GIT_TOKEN });
 });
 
