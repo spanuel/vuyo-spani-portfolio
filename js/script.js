@@ -22,33 +22,43 @@ const projectDetails = {
 
 async function fetchGitHubProjects() {
     const username = 'spanuel';
-    const token = process.env.GIT_TOKEN;
-    const projects = [];
-
-    for (const [projectName, details] of Object.entries(projectDetails)) {
-        try {
-            const response = await fetch(`https://api.github.com/repos/${username}/${projectName}`, {
-                headers: {
-                    'Authorization': `token ${token}`
-                }
-            });
-            if (response.ok) {
-                const project = await response.json();
-                projects.push({
-                    ...project,
-                    custom_description: details.description,
-                    custom_image: details.image
-                });
-            } else {
-                console.error(`Failed to fetch ${projectName}: ${response.status} ${response.statusText}`);
-            }
-        } catch (error) {
-            console.error(`Error fetching ${projectName}:`, error);
-        }
+    let token;
+  
+    try {
+      const response = await fetch('/config');
+      const data = await response.json();
+      token = data.GIT_TOKEN;
+    } catch (error) {
+      console.error('Error fetching config:', error);
+      return [];
     }
-
+  
+    const projects = [];
+  
+    for (const [projectName, details] of Object.entries(projectDetails)) {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${username}/${projectName}`, {
+          headers: {
+            'Authorization': `token ${token}`
+          }
+        });
+        if (response.ok) {
+          const project = await response.json();
+          projects.push({
+            ...project,
+            custom_description: details.description,
+            custom_image: details.image
+          });
+        } else {
+          console.error(`Failed to fetch ${projectName}: ${response.status} ${response.statusText}`);
+        }
+      } catch (error) {
+        console.error(`Error fetching ${projectName}:`, error);
+      }
+    }
+  
     return projects;
-}
+  }
 
 function createProjectCard(project) {
     return `

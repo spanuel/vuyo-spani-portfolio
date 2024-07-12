@@ -42,5 +42,9 @@ app.post('/send_message', async (req, res) => {
   }
 });
 
+app.get('/config', (req, res) => {
+  res.json({ GIT_TOKEN: process.env.GIT_TOKEN });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
