@@ -43,9 +43,14 @@ app.post('/send_message', async (req, res) => {
 });
 
 app.get('/config', (req, res) => {
-  console.log("Your GIT HUB TOKEN KEY",process.env.GIT_TOKEN);
-  res.json({ GIT_TOKEN: process.env.GIT_TOKEN });
+  const gitToken = process.env.GIT_TOKEN;
+  if (!gitToken) {
+    res.status(500).json({ error: 'GIT_TOKEN not set in environment variables' });
+  } else {
+    res.json({ GIT_TOKEN: gitToken });
+  }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

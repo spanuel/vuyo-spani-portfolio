@@ -26,6 +26,9 @@ async function fetchGitHubProjects() {
   
     try {
       const response = await fetch('/config');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       token = data.GIT_TOKEN;
     } catch (error) {
@@ -59,6 +62,7 @@ async function fetchGitHubProjects() {
   
     return projects;
   }
+  
 
 function createProjectCard(project) {
     return `
