@@ -1,5 +1,5 @@
 console.log("JavaScript code is running!");
-require('dotenv').config(); 
+
 
 const projectDetails = {
     'ToDoApp': {
