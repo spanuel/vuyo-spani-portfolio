@@ -295,39 +295,42 @@
                 <h4 class="contact-sub-title padd-15">I RESPOND PROMPTLY TO MESSAGES</h4>
                 <div class="row">
                     <div class="contact-form padd-15">
-                        <div class="row">
-                            <div class="form-item col-6 padd-15">
-                                <div class="form-group">
-                                    <input type="text" id="name" class="form-control" placeholder="Name">
+                        <form name="contact" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="contact" />
+                            <div class="row">
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                    </div>
                                 </div>
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                </div>    
                             </div>
-                            <div class="form-item col-6 padd-15">
-                                <div class="form-group">
-                                    <input type="email" id="email" class="form-control" placeholder="Email">
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="row">
-                            <div class="form-item col-12 padd-15">
-                                <div class="form-group">
-                                    <input type="text" id="subject" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class="row">
-                            <div class="form-item col-12 padd-15">
-                                <div class="form-group">
-                                    <textarea id="message" class="form-control" placeholder="Message"></textarea>
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class="row">
-                            <div class="form-item col-12 padd-15">
-                                <div class="form-group">
-                                    <button type="submit" id="send-message-btn" class="btn-download">Send Message</button>
-                                </div>
-                            </div>                            
-                        </div>                                               
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn-download">Send Message</button>
+                                    </div>
+                                </div>                            
+                            </div>                                               
+                        </form>                                             
                     </div>
                 </div>
             </div>
