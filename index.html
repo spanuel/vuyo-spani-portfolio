@@ -295,8 +295,8 @@
                 <h4 class="contact-sub-title padd-15">I RESPOND PROMPTLY TO MESSAGES</h4>
                 <div class="row">
                     <div class="contact-form padd-15">
-                        <form name="contact" method="POST" data-netlify="true">
-                            <input type="hidden" name="form-name" value="contact" />
+                        <form action="https://formsubmit.co/vuyospani@outlook.com" method="POST">
+                            <input type="hidden" name="_subject" value="New submission from portfolio!">
                             <div class="row">
                                 <div class="form-item col-6 padd-15">
                                     <div class="form-group">
@@ -329,8 +329,12 @@
                                         <button type="submit" class="btn-download">Send Message</button>
                                     </div>
                                 </div>                            
-                            </div>                                               
-                        </form>                                             
+                            </div>
+                            <!-- Optional: Redirect to a custom "thank you" page -->
+                            <input type="hidden" name="_next" value="https://yoursite.com/thanks.html">
+                            <!-- Optional: Disable captcha -->
+                            <input type="hidden" name="_captcha" value="false">
+                        </form>                                            
                     </div>
                 </div>
             </div>
