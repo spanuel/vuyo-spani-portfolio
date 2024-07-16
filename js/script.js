@@ -72,4 +72,43 @@ function displayProjects() {
 // Call this function when the page loads
 document.addEventListener('DOMContentLoaded', displayProjects);
 
-// Remove all code related to sending emails via JavaScript
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section');
+    const navItems = document.querySelectorAll('.nav li a');
+
+    function setActiveNavItem() {
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').substring(1) === currentSection) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActiveNavItem);
+    setActiveNavItem(); // Call once to set initial state
+
+    // Smooth scrolling for navigation links
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
