@@ -742,6 +742,22 @@ transform: translateY(-5px);
     margin-bottom: 30px;
   }
 
+
+a {
+    color: black;
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+a:hover, a:focus {
+    color:var(--text-color-2);
+    text-decoration: underline; 
+}
+
+a:active {
+    color: black;
+}
+
 @media (max-width:1199px)
 {
     .aside
