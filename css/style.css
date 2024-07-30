@@ -597,6 +597,10 @@ box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 height: 140px;
 }
 
+.contact .contact-info-item p {
+    color: var(--text-color-2);
+}
+
 .contact .contact-form .btn-download
 {
 height: 50px;
@@ -617,16 +621,12 @@ width: 33%;
 padding: 0 10px;
 }
 
-.service-item .card p 
-{
-&:first-child 
-{
+.service-item .card p:nth-child(2) {
     color: var(--text-color-1);
 }
-&:nth-child(2) 
-{
+
+.service-item .card p:nth-child(3) {
     color: var(--text-color-2);
-}
 }
   
 .projects-scroll-container 
@@ -744,18 +744,18 @@ transform: translateY(-5px);
 
 
 a {
-    color: black;
+    color: var(--text-color-2);
     text-decoration: none; 
     transition: color 0.3s ease; 
 }
 
 a:hover, a:focus {
-    color:var(--text-color-2);
+    color:var(--skin-color-1);
     text-decoration: underline; 
 }
 
 a:active {
-    color: black;
+    color: var(--text-color-1);
 }
 
 @media (max-width:1199px)
