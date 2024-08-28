@@ -112,3 +112,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+    const navToggler = document.querySelector(".nav-toggler");
+    const sideMenu = document.querySelector(".side-menu");
+
+    navToggler.addEventListener("click", () => {
+        sideMenu.classList.toggle("open");
+    });

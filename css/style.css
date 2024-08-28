@@ -758,49 +758,76 @@ a:active {
     color: var(--text-color-1);
 }
 
-@media (max-width:1199px)
-{
-    .aside
-    {
+/* Responsive styles */
+@media (max-width: 1199px) {
+    .side-menu {
         left: -270px;
     }
-
-    .main-content
-    {
+    
+    .main-content {
         padding-left: 0;
     }
-    .about .about-content .personal-info .info-item p span
-    {
-        display: block;
-        margin-left: 0;
+    
+    .side-menu .nav-toggler {
+        display: flex;
+    }
+    
+    .side-menu.open {
+        left: 0;
+    }
+    
+    .side-menu.open .nav-toggler {
+        left: 300px;
+    }
+    
+    .section {
+        left: 0;
     }
 }
 
-@media (max-width:991px)
-{
-    .home  .home-info
-    {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .service .service-item,.contact .contact-info-item
-    {
+@media (max-width: 991px) {
+    .contact .contact-info-item,
+    .service .service-item,
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info {
         flex: 0 0 50%;
         max-width: 50%;
     }
+    
+    .home .home-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
-@media (max-width:767px)
-{
+@media (max-width: 767px) {
     .contact .contact-form .col-6,
     .contact .contact-info-item,
     .service .service-item,
     .about .about-content .experience,
     .about .about-content .education,
     .about .about-content .skills,
-    .about .about-content .personal-info
-    {
+    .about .about-content .personal-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .about .about-content .personal-info .info-item p span {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .service .service-item,
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info {
         flex: 0 0 100%;
         max-width: 100%;
     }
