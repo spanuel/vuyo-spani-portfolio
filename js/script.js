@@ -121,34 +121,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const codeSnippets = [
-        'public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, I\'m Vuyo!");\n    }\n}',
-        'using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine("C# Developer");\n    }\n}',
-        'SELECT skills FROM developer\nWHERE name = "Vuyo Spani"\n  AND passion = "Coding";'
+        {
+            code: 'public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, I\'m Vuyo!");\n    }\n}',
+            language: 'java'
+        },
+        {
+            code: 'using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine("C# Developer");\n    }\n}',
+            language: 'csharp'
+        },
+        {
+            code: 'SELECT skills FROM developer\nWHERE name = "Vuyo Spani"\n  AND passion = "Coding";',
+            language: 'sql'
+        }
     ];
-
+    
     let currentSnippet = 0;
     let charIndex = 0;
     const typingSpeed = 20; // Speed of typing in milliseconds
     const delayBetweenSnippets = 3000; // Delay before switching to the next snippet
-
+    
     const snippetElement = document.getElementById('snippet');
-
+    
     function typeSnippet() {
-        snippetElement.innerHTML = ''; // Clear the current snippet
-
+        snippetElement.textContent = ''; // Clear the current snippet
+        snippetElement.className = `language-${codeSnippets[currentSnippet].language}`;
+    
         function typeChar() {
-            if (charIndex < codeSnippets[currentSnippet].length) {
+            if (charIndex < codeSnippets[currentSnippet].code.length) {
                 // Append the next character
-                snippetElement.innerHTML += codeSnippets[currentSnippet].charAt(charIndex)
-                    .replace(/</g, "&lt;")
-                    .replace(/>/g, "&gt;");
-
+                snippetElement.textContent += codeSnippets[currentSnippet].code.charAt(charIndex);
+                
+                // Highlight the code
+                Prism.highlightElement(snippetElement);
+    
                 charIndex++;
                 setTimeout(typeChar, typingSpeed); // Type the next character
             } else {
-                // Highlight the final snippet
-                Prism.highlightElement(snippetElement);
-
                 // Move to the next snippet after a delay
                 setTimeout(() => {
                     currentSnippet = (currentSnippet + 1) % codeSnippets.length;
@@ -157,8 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, delayBetweenSnippets);
             }
         }
-
+    
         typeChar(); // Start typing the first character
     }
-
-    typeSnippet();
+    
+    // Call this function when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        displayProjects();
+        typeSnippet();
+    });
