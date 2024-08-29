@@ -6,6 +6,7 @@
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="main-container">
@@ -28,11 +29,14 @@
         <div class="main-content">
             <section class="home section" id="home">
                 <div class="container">
-                    <div class="row">
+                    <div class="row home-row">
                         <div class="home-content padd-15">
                             <h3 class="intro"><span class="name">Vuyo Spani</span></h3>
                             <h3 class="profession"><span class="title">Software Developer</span></h3>
                             <p>A skilled Software Developer seeking full-time opportunities to leverage expertise, expand technical knowledge, and contribute to innovative projects. Committed to continuous growth and delivering high-quality solutions.</p>
+                        </div>
+                        <div class="code-snippets padd-15">
+                            <pre><code id="snippet"></code></pre>
                         </div>
                     </div>
                 </div>
@@ -339,5 +343,6 @@
         </div>
     </div>
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
 </body>
 </html>
