@@ -171,6 +171,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Call this function when the page loads
     document.addEventListener('DOMContentLoaded', () => {
-        displayProjects();
         typeSnippet();
     });
